@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     var flats: String!
     var sharps: String!
     var detectedNotes: [String] = []
+    var index = 0
     
 
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
@@ -52,10 +53,13 @@ class ViewController: UIViewController {
             AKLog("AudioKit did not start!")
         }
         setupPlot()
-        matchNotes()
-        Timer.scheduledTimer(timeInterval: 1,
+        DispatchQueue.global(qos: .background).async (execute: {
+            self.matchNotes()
+        })
+        
+        Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
-                             selector: #selector(ViewController.matchNotes),
+                             selector: #selector(ViewController.updateUI),
                              userInfo: nil,
                              repeats: true)
 
@@ -86,91 +90,92 @@ class ViewController: UIViewController {
         // FUNCTION NEEDS TO BE CALLED FOR EVERY NEW PAGE //
         // musicScore MUST NOT BE EMPTY
         
-        if tracker.amplitude > 0.1 {
-            let measure: Measure = music.musicScore[music.currMeasure]
-            var i = 0
+        //if tracker.amplitude > 0.05 {
+            var measure: Measure = music.musicScore[music.currMeasure]
+            var i = 0    
             while (!music.musicScore[music.currMeasure].isLastMeasure) {
                 if !measure.notes.isEmpty { // Enter if there are notes in the measure
-                    while (i < measure.notes.count) {
-                        // check if mic picks up the same note:
-                        updateUI()
-                        
+                    repeat {
                         // now check for the note:
                         if ((measure.notes[i].pitch == flats) || (measure.notes[i].pitch == sharps)) {
                             i += 1 // successful detection. loop to next note in the measure.
                         }
-                    }
-                    // if here, then we are at the last note in the measure
+                    } while (i < measure.notes.count)
+                   // if here, then we are at the last note in the measure
+                    
                 }
                 i = 0
                 music.currMeasure += 1 // loop to next measure in the music score
+                measure = music.musicScore[music.currMeasure]
             }
-            
             if !measure.notes.isEmpty { // Enter if there are notes in the measure
-                while (i < measure.notes.count) {
-                    // check if mic picks up the same note:
-                    updateUI()
-                    
+                repeat {
                     // now check for the note:
                     if ((measure.notes[i].pitch == flats) || (measure.notes[i].pitch == sharps)) {
                         i += 1 // successful detection. loop to next note in the measure.
                     }
-                }
+                } while (i < measure.notes.count)
                 // if here, then we are at the last note in the measure
+                
             }
         
-            // if here, then we have finished analyzing a page
+            // if here, then we have hit the last measure on the page
+            
             // STUB CODE, NEED TO LINK TO NEXT PAGE BUTTON //
-            outputLabel.text = "End of Page"
-        }
+            DispatchQueue.main.async (execute: {
+                self.outputLabel.text = "End of Page"
+            })
+        //}
     }
     
     @objc func updateUI() {
-        // if tracker.amplitude > 0.1 {
-        let currThread = Thread.current
-        print("Current: \(currThread)")
-        
-            DispatchQueue.main.async (execute: {
-                self.frequencyLabel.text = String(format: "%0.1f", self.tracker.frequency)
-        })
-        
-            var frequency = Float(tracker.frequency)
-            while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
-                frequency /= 2.0
-            }
-            while frequency < Float(noteFrequencies[0]) {
-                frequency *= 2.0
-            }
-
-            var minDistance: Float = 10_000.0
-            var index = 0
-
-            for i in 0..<noteFrequencies.count {
-                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
-                if distance < minDistance {
-                    index = i
-                    minDistance = distance
+        if tracker.amplitude > 0.1 {
+            let currThread = Thread.current
+            print("Current: \(currThread)")
+            
+                DispatchQueue.main.async (execute: {
+                    self.frequencyLabel.text = String(format: "%0.1f", self.tracker.frequency)
+            })
+            
+                var frequency = Float(tracker.frequency)
+                while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
+                    frequency /= 2.0
                 }
-            }
-            //let octave = Int(log2f(Float(tracker.frequency) / frequency))
-        
-        DispatchQueue.main.async (execute: {
-            self.noteNameWithSharpsLabel.text = "\(self.noteNamesWithSharps[index])"
-            self.noteNameWithFlatsLabel.text = "\(self.noteNamesWithFlats[index])"
-        })
-        print(noteNamesWithSharps[index])
-        print(noteNamesWithFlats[index])
+                while frequency < Float(noteFrequencies[0]) {
+                    frequency *= 2.0
+                }
 
-        flats = noteNamesWithFlats[index]
-        sharps = noteNamesWithSharps[index]
-        detectedNotes.append(flats)
-            //matchNotes()
-        //}
+                var minDistance: Float = 10_000.0
+                //var index = 0
+
+                for i in 0..<noteFrequencies.count {
+                    let distance = fabsf(Float(noteFrequencies[i]) - frequency)
+                    if distance < minDistance {
+                        index = i
+                        minDistance = distance
+                    }
+                }
+                //let octave = Int(log2f(Float(tracker.frequency) / frequency))
+            
+            DispatchQueue.main.async (execute: {
+                self.noteNameWithSharpsLabel.text = "\(self.noteNamesWithSharps[self.index])"
+                self.noteNameWithFlatsLabel.text = "\(self.noteNamesWithFlats[self.index])"
+            })
+            print(noteNamesWithSharps[index])
+            print(noteNamesWithFlats[index])
+
+            flats = noteNamesWithFlats[index]
+            sharps = noteNamesWithSharps[index]
+            detectedNotes.append(flats)
+        }
+        
         DispatchQueue.main.async (execute: {
             self.amplitudeLabel.text = String(format: "%0.2f", self.tracker.amplitude)
         })
         
     }
+    
+    
     @IBAction func stop(_ sender: UIButton) {
         do {
             try AudioKit.stop()
