@@ -7,41 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C2A589720ACADD100CFF308 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A589620ACADD100CFF308 /* Classes.swift */; };
+		1C2A589720ACADD100CFF308 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A589620ACADD100CFF308 /* Music.swift */; };
+		1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107020C1403300056ED0 /* SongTableViewCell.swift */; };
+		1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107220C14BBE00056ED0 /* SongTableViewController.swift */; };
+		1C47107820C3305000056ED0 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */; };
+		1C47107A20C3305000056ED0 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881F82F1D0C01F0007E62A3 /* AudioKit.framework */; };
 		1C88E3F020AFA4FE009B1B3C /* parserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */; };
-		7881F8301D0C01F0007E62A3 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881F82F1D0C01F0007E62A3 /* AudioKit.framework */; };
 		789CA9B61D0A01F500D6EFF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CA9B51D0A01F500D6EFF1 /* AppDelegate.swift */; };
-		789CA9B81D0A01F500D6EFF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CA9B71D0A01F500D6EFF1 /* ViewController.swift */; };
+		789CA9B81D0A01F500D6EFF1 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CA9B71D0A01F500D6EFF1 /* SongViewController.swift */; };
 		789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9B91D0A01F500D6EFF1 /* Main.storyboard */; };
 		789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */; };
 		789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */; };
-		EA10E1521F4F93AB003F0CA9 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */; };
+		D0B49179620476EFB9AF880D /* Pods_MicrophoneAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		7881F8321D0C01F0007E62A3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1C2A589620ACADD100CFF308 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		1C2A589620ACADD100CFF308 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		1C47107020C1403300056ED0 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		1C47107220C14BBE00056ED0 /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 		1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parserInfo.swift; path = ../../../../../Downloads/parserInfo.swift; sourceTree = "<group>"; };
+		312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicrophoneAnalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3467C0D39F1E22D3C99D0A1A /* Pods-MicrophoneAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicrophoneAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-MicrophoneAnalysis/Pods-MicrophoneAnalysis.release.xcconfig"; sourceTree = "<group>"; };
 		7881F82F1D0C01F0007E62A3 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = ../../AudioKit.framework; sourceTree = "<group>"; };
 		789CA9B21D0A01F500D6EFF1 /* MicrophoneAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicrophoneAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789CA9B51D0A01F500D6EFF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		789CA9B71D0A01F500D6EFF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		789CA9B71D0A01F500D6EFF1 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		789CA9BA1D0A01F500D6EFF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		789CA9BF1D0A01F500D6EFF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		789CA9C11D0A01F500D6EFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicrophoneAnalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MicrophoneAnalysis/Pods-MicrophoneAnalysis.debug.xcconfig"; sourceTree = "<group>"; };
 		EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = ../../AudioKitUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,8 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA10E1521F4F93AB003F0CA9 /* AudioKitUI.framework in Frameworks */,
-				7881F8301D0C01F0007E62A3 /* AudioKit.framework in Frameworks */,
+				1C47107A20C3305000056ED0 /* AudioKit.framework in Frameworks */,
+				1C47107820C3305000056ED0 /* AudioKitUI.framework in Frameworks */,
+				D0B49179620476EFB9AF880D /* Pods_MicrophoneAnalysis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +60,7 @@
 				789CA9B41D0A01F500D6EFF1 /* MicrophoneAnalysis */,
 				78E189C41D0C059B006474D5 /* Frameworks */,
 				789CA9B31D0A01F500D6EFF1 /* Products */,
+				8529AF5F34928890E34058BF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,8 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				789CA9B51D0A01F500D6EFF1 /* AppDelegate.swift */,
-				789CA9B71D0A01F500D6EFF1 /* ViewController.swift */,
-				1C2A589620ACADD100CFF308 /* Classes.swift */,
+				789CA9B71D0A01F500D6EFF1 /* SongViewController.swift */,
+				1C2A589620ACADD100CFF308 /* Music.swift */,
+				1C47107020C1403300056ED0 /* SongTableViewCell.swift */,
+				1C47107220C14BBE00056ED0 /* SongTableViewController.swift */,
 				1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */,
 				789CA9B91D0A01F500D6EFF1 /* Main.storyboard */,
 				789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */,
@@ -95,8 +94,18 @@
 			children = (
 				EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */,
 				7881F82F1D0C01F0007E62A3 /* AudioKit.framework */,
+				312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8529AF5F34928890E34058BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */,
+				3467C0D39F1E22D3C99D0A1A /* Pods-MicrophoneAnalysis.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,10 +115,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 789CA9C41D0A01F500D6EFF1 /* Build configuration list for PBXNativeTarget "MicrophoneAnalysis" */;
 			buildPhases = (
+				17FC485BD93C1BE07B135838 /* [CP] Check Pods Manifest.lock */,
 				789CA9AE1D0A01F500D6EFF1 /* Sources */,
 				789CA9AF1D0A01F500D6EFF1 /* Frameworks */,
 				789CA9B01D0A01F500D6EFF1 /* Resources */,
-				7881F8321D0C01F0007E62A3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,15 +176,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17FC485BD93C1BE07B135838 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MicrophoneAnalysis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		789CA9AE1D0A01F500D6EFF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				789CA9B81D0A01F500D6EFF1 /* ViewController.swift in Sources */,
+				789CA9B81D0A01F500D6EFF1 /* SongViewController.swift in Sources */,
 				1C88E3F020AFA4FE009B1B3C /* parserInfo.swift in Sources */,
+				1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */,
 				789CA9B61D0A01F500D6EFF1 /* AppDelegate.swift in Sources */,
-				1C2A589720ACADD100CFF308 /* Classes.swift in Sources */,
+				1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */,
+				1C2A589720ACADD100CFF308 /* Music.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +345,7 @@
 		};
 		789CA9C51D0A01F500D6EFF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -320,7 +353,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MicrophoneAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.MicrophoneAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -329,6 +365,7 @@
 		};
 		789CA9C61D0A01F500D6EFF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3467C0D39F1E22D3C99D0A1A /* Pods-MicrophoneAnalysis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -336,7 +373,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MicrophoneAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.MicrophoneAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

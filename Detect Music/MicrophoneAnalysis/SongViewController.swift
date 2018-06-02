@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SongViewController.swift
 //  MicrophoneAnalysis
 //
 //  Created by Kanstantsin Linou, revision history on Githbub.
@@ -13,7 +13,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class ViewController: UIViewController {
+class SongViewController: UIViewController {
 
     @IBOutlet private var frequencyLabel: UILabel!
     @IBOutlet private var amplitudeLabel: UILabel!
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
-    var music: Detect!
+    var music: Song!
     var measure0: Measure!
     var measure1: Measure!
     var flats: String!
@@ -62,22 +62,12 @@ class ViewController: UIViewController {
         
         Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
-                             selector: #selector(ViewController.updateUI),
+                             selector: #selector(SongViewController.updateUI),
                              userInfo: nil,
                              repeats: true)
 
     }
-    
-////////////////////////////////////////HARD CODED MUSCIC/////////////////////////////////////////////////////
 
-    @IBAction func loadMusicClicked(_ sender: Any) {
-        measure0 = Measure(number: 0, notes: [Note(pitch: "A", isLastNote: false), Note(pitch: "B", isLastNote: false), Note(pitch: "C", isLastNote: false), Note(pitch: "D", isLastNote: true)], isLastMeasure: false)
-        measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
-        music = Detect(song: "Test", musicScore: [measure0, measure1], currMeasure: 0)
-    }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -135,7 +125,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateUI() {
-        if tracker.amplitude > 0.1 {
+        if tracker.amplitude > 0.02 {
             let currThread = Thread.current
             print("Current: \(currThread)")
             
