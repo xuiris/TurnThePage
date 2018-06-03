@@ -26,13 +26,11 @@ class SongViewController: UIViewController {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     var music: Song!
-    var measure0: Measure!
-    var measure1: Measure!
     var flats: String!
     var sharps: String!
     var detectedNotes: [String] = []
-    var index = 0
-    var musicScoreIndex: Int = 0;
+    var pitchIndex = 0
+    var musicScoreIndex: Int = 0
     var pageViewController : UIPageViewController?
     
 
@@ -60,9 +58,7 @@ class SongViewController: UIViewController {
             AKLog("AudioKit did not start!")
         }
         setupPlot()
-        DispatchQueue.global(qos: .background).async (execute: {
-            self.matchNotes()
-        })
+        matchMusic()
         
         Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
@@ -72,6 +68,17 @@ class SongViewController: UIViewController {
 
     }
 
+    func matchMusic() {
+
+        // If it detects that the musician hasn't reached the end of the music,
+        // keep matching sound to music score.
+        if (self.music.currMeasure < self.music.musicScore.count) {
+            DispatchQueue.global(qos: .background).async (execute: {
+                self.matchPage()
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,23 +87,30 @@ class SongViewController: UIViewController {
         tracker = AKFrequencyTracker(mic)
         silence = AKBooster(tracker, gain: 0)
         
-        //setupPDF()
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.hidesBarsOnTap = true;
         self.navigationController?.hidesBarsOnSwipe = true;
-        displayPhoto()
+        displaySong()
         
     }
     
-    func displayPhoto() {
+    func displaySong() {
         // Decide how the image will display in the UIImageView box
         self.musicScoreView.contentMode = UIViewContentMode.scaleAspectFit
         
         // Load the sheet music
-        self.musicScoreView.image = UIImage(named: music.sheetJPG[index])
+        self.musicScoreView.image = UIImage(named: music.sheetJPG[musicScoreIndex])
+    }
+    
+    func flipPage() {
+        // Change image display to show the next page in the music score
+        musicScoreIndex += 1
+        if (musicScoreIndex < (music.sheetJPG.count)) {
+            self.musicScoreView.image = UIImage(named: music.sheetJPG[musicScoreIndex])
+            outputLabel.text = "Status: "
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,28 +118,13 @@ class SongViewController: UIViewController {
 
     }
 
-    @objc func matchNotes() {
+    @objc func matchPage() {
         // FUNCTION NEEDS TO BE CALLED FOR EVERY NEW PAGE //
         // musicScore MUST NOT BE EMPTY
-        
-        //if tracker.amplitude > 0.05 {
-            var measure: Measure = music.musicScore[music.currMeasure]
-            var i = 0    
-            while (!music.musicScore[music.currMeasure].isLastMeasure) {
-                if !measure.notes.isEmpty { // Enter if there are notes in the measure
-                    repeat {
-                        // now check for the note:
-                        if ((measure.notes[i].pitch == flats) || (measure.notes[i].pitch == sharps)) {
-                            i += 1 // successful detection. loop to next note in the measure.
-                        }
-                    } while (i < measure.notes.count)
-                   // if here, then we are at the last note in the measure
-                    
-                }
-                i = 0
-                music.currMeasure += 1 // loop to next measure in the music score
-                measure = music.musicScore[music.currMeasure]
-            }
+    
+        var measure: Measure = music.musicScore[music.currMeasure]
+        var i = 0
+        while (!music.musicScore[music.currMeasure].isLastMeasure) {
             if !measure.notes.isEmpty { // Enter if there are notes in the measure
                 repeat {
                     // now check for the note:
@@ -133,17 +132,30 @@ class SongViewController: UIViewController {
                         i += 1 // successful detection. loop to next note in the measure.
                     }
                 } while (i < measure.notes.count)
-                // if here, then we are at the last note in the measure
+               // if here, then we are at the last note in the measure
                 
             }
-        
-            // if here, then we have hit the last measure on the page
+            i = 0
+            music.currMeasure += 1 // loop to next measure in the page
+            measure = music.musicScore[music.currMeasure]
+        }
+        if !measure.notes.isEmpty { // Enter if there are notes in the measure
+            repeat {
+                // now check for the note:
+                if ((measure.notes[i].pitch == flats) || (measure.notes[i].pitch == sharps)) {
+                    i += 1 // successful detection. loop to next note in the measure.
+                }
+            } while (i < measure.notes.count)
+            // if here, then we are at the last note in the measure
             
-            // STUB CODE, NEED TO LINK TO NEXT PAGE BUTTON //
-            DispatchQueue.main.async (execute: {
-                self.outputLabel.text = "Status: End of Page"
-            })
-        //}
+        }
+    
+        // if here, then we have hit the last measure on the page
+        DispatchQueue.main.async (execute: {
+            self.outputLabel.text = "Status: End of Page"
+            self.flipPage()
+            self.matchMusic()
+        })
     }
     
     @objc func updateUI() {
@@ -164,26 +176,26 @@ class SongViewController: UIViewController {
                 }
 
                 var minDistance: Float = 10_000.0
-                //var index = 0
+                //var pitchIndex = 0
 
                 for i in 0..<noteFrequencies.count {
                     let distance = fabsf(Float(noteFrequencies[i]) - frequency)
                     if distance < minDistance {
-                        index = i
+                        pitchIndex = i
                         minDistance = distance
                     }
                 }
                 //let octave = Int(log2f(Float(tracker.frequency) / frequency))
             
             DispatchQueue.main.async (execute: {
-                self.noteNameWithSharpsLabel.text = "\(self.noteNamesWithSharps[self.index])"
-                self.noteNameWithFlatsLabel.text = "\(self.noteNamesWithFlats[self.index])"
+                self.noteNameWithSharpsLabel.text = "\(self.noteNamesWithSharps[self.pitchIndex])"
+                self.noteNameWithFlatsLabel.text = "\(self.noteNamesWithFlats[self.pitchIndex])"
             })
-            print(noteNamesWithSharps[index])
-            print(noteNamesWithFlats[index])
+            print(noteNamesWithSharps[pitchIndex])
+            print(noteNamesWithFlats[pitchIndex])
 
-            flats = noteNamesWithFlats[index]
-            sharps = noteNamesWithSharps[index]
+            flats = noteNamesWithFlats[pitchIndex]
+            sharps = noteNamesWithSharps[pitchIndex]
             detectedNotes.append(flats)
         }
         
@@ -198,7 +210,7 @@ class SongViewController: UIViewController {
         do {
             try AudioKit.stop()
         } catch {
-            AKLog("cannot stop")
+            AKLog("Error: Could not stop microphone detection.")
         }
     }
     
