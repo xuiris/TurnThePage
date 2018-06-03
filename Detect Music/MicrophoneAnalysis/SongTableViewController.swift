@@ -64,7 +64,7 @@ class SongTableViewController: UITableViewController {
         let measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
         
         
-        let song1 = Song(song: "Song1", artist: "Artist1", musicScore: [measure0, measure1], currMeasure: 0)
+        let song1 = Song(song: "JingleBells", artist: "Artist1", musicScore: [measure0, measure1], currMeasure: 0)
         let song2 = Song(song: "Song2", artist: "Artist2", musicScore: [measure0, measure1], currMeasure: 0)
         let song3 = Song(song: "Song3", artist: "Artist3", musicScore: [measure0, measure1], currMeasure: 0)
         
@@ -77,22 +77,31 @@ class SongTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        // Get the new view controller using segue.destinationViewController.
-        guard let songDetailViewController = segue.destination as? SongViewController else {
-            fatalError("Unexpected destination: \(segue.destination)")
-        }
-        
-        guard let selectedSongCell = sender as? SongTableViewCell else {
-            fatalError("Unexpected sender: \(sender)")
-        }
-        
-        guard let indexPath = tableView.indexPath(for: selectedSongCell) else {
-            fatalError("The selected cell is not being displayed by the table")
-        }
-        
-        let selectedSong = songs[indexPath.row]
-        songDetailViewController.music = selectedSong
-        // Pass the selected object to the new view controller.
+        switch(segue.identifier ?? "") {
+            case "ViewImage":
+                os_log("Viewing image.", log: OSLog.default, type: .debug)
+            
+            case "BeginDetect":
+                // Get the new view controller using segue.destinationViewController.
+                guard let songDetailViewController = segue.destination as? SongViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                guard let selectedSongCell = sender as? SongTableViewCell else {
+                    fatalError("Unexpected sender: \(sender)")
+                }
+                
+                guard let indexPath = tableView.indexPath(for: selectedSongCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                
+                let selectedSong = songs[indexPath.row]
+                songDetailViewController.music = selectedSong
+                // Pass the selected object to the new view controller.
+            
+            default:
+                fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            }
     }
     
     

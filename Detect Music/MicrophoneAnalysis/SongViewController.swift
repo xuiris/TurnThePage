@@ -20,7 +20,7 @@ class SongViewController: UIViewController {
     @IBOutlet var noteNameWithSharpsLabel: UILabel!
     @IBOutlet var noteNameWithFlatsLabel: UILabel!
     @IBOutlet private var audioInputPlot: EZAudioPlot!
-
+    
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
@@ -36,7 +36,7 @@ class SongViewController: UIViewController {
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
-
+    
     func setupPlot() {
         let plot = AKNodeOutputPlot(mic, frame: audioInputPlot.bounds)
         plot.plotType = .rolling
@@ -45,6 +45,17 @@ class SongViewController: UIViewController {
         plot.color = UIColor.blue
         audioInputPlot.addSubview(plot)
     }
+    
+//    func setupPDF() {
+//        if let url=Bundle.main.url(forResource:"jinglebells",withExtension:"pdf"){
+//            let webView=UIWebView(frame:self.view.frame)
+//            let urlRequest=URLRequest(url:url)
+//            webView.loadRequest(urlRequest as URLRequest)
+//            self.view.addSubview(webView)
+//        }
+//    }
+    
+
 
     @IBOutlet weak var outputLabel: UILabel!
     
@@ -75,6 +86,9 @@ class SongViewController: UIViewController {
         mic = AKMicrophone()
         tracker = AKFrequencyTracker(mic)
         silence = AKBooster(tracker, gain: 0)
+        
+        //setupPDF()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -179,5 +193,7 @@ class SongViewController: UIViewController {
             AKLog("cannot stop")
         }
     }
+    
+
 
 }
