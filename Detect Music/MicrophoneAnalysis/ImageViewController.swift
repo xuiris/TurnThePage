@@ -59,7 +59,12 @@ class ImageViewController: UIViewController {
     }
     
     func displayPhoto() {
-        self.imageView.image = UIImage(named: Constants.Statics.images[index])
+        // Decide how the image will display in the UIImageView box
+        self.imageView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        // Load the image
+        let image = UIImage(named: Constants.Statics.images[index])
+        self.imageView.image = image
     }
     
 

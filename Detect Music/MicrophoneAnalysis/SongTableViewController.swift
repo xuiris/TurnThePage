@@ -63,10 +63,10 @@ class SongTableViewController: UITableViewController {
         let measure0 = Measure(number: 0, notes: [Note(pitch: "A", isLastNote: false), Note(pitch: "B", isLastNote: false), Note(pitch: "C", isLastNote: false), Note(pitch: "D", isLastNote: true)], isLastMeasure: false)
         let measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
         
-        
-        let song1 = Song(song: "JingleBells", artist: "Artist1", musicScore: [measure0, measure1], currMeasure: 0)
-        let song2 = Song(song: "Song2", artist: "Artist2", musicScore: [measure0, measure1], currMeasure: 0)
-        let song3 = Song(song: "Song3", artist: "Artist3", musicScore: [measure0, measure1], currMeasure: 0)
+        // SONG 1 NEEDS TO BE TESTED TO SEE IF WE CAN DETECT END AND GO TO NEW PAGE
+        let song1 = Song(song: "Test Song 1 (2 pages)", artist: "Artist 1", musicScore: [measure0, measure1, measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg", "testsong.jpg"])
+        let song2 = Song(song: "Test Song 2 (1 page)", artist: "Artist 2", musicScore: [measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
+        let song3 = Song(song: "Test Song 3 (1 page)", artist: "Artist 3", musicScore: [measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
         
         songs += [song1, song2, song3]
     }

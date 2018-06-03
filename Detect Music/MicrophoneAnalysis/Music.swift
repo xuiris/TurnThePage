@@ -25,14 +25,14 @@ class Song{
     var artist: String = String()
     var musicScore = [Measure]()
     var currMeasure: Int
-    //var sheetPDF: String = String()
+    var sheetJPG = [String]()
     //var sheetXML: String = String()
-    init(song:String, artist:String, musicScore:[Measure], currMeasure:Int /*, sheetPDF:String, sheetXML:String*/) {
+    init(song:String, artist:String, musicScore:[Measure], currMeasure:Int, sheetJPG:[String] /*, sheetXML:String*/) {
         self.song = song
         self.artist = artist
         self.musicScore = musicScore
         self.currMeasure = 0
-        //self.sheetPDF = sheetPDF
+        self.sheetJPG = sheetJPG
         //self.sheetXML = sheetXML
     }
 }

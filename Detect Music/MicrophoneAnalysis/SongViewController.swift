@@ -20,6 +20,7 @@ class SongViewController: UIViewController {
     @IBOutlet var noteNameWithSharpsLabel: UILabel!
     @IBOutlet var noteNameWithFlatsLabel: UILabel!
     @IBOutlet private var audioInputPlot: EZAudioPlot!
+    @IBOutlet weak var musicScoreView: UIImageView!
     
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
@@ -31,6 +32,8 @@ class SongViewController: UIViewController {
     var sharps: String!
     var detectedNotes: [String] = []
     var index = 0
+    var musicScoreIndex: Int = 0;
+    var pageViewController : UIPageViewController?
     
 
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
@@ -46,16 +49,6 @@ class SongViewController: UIViewController {
         audioInputPlot.addSubview(plot)
     }
     
-//    func setupPDF() {
-//        if let url=Bundle.main.url(forResource:"jinglebells",withExtension:"pdf"){
-//            let webView=UIWebView(frame:self.view.frame)
-//            let urlRequest=URLRequest(url:url)
-//            webView.loadRequest(urlRequest as URLRequest)
-//            self.view.addSubview(webView)
-//        }
-//    }
-    
-
 
     @IBOutlet weak var outputLabel: UILabel!
     
@@ -91,6 +84,21 @@ class SongViewController: UIViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.hidesBarsOnTap = true;
+        self.navigationController?.hidesBarsOnSwipe = true;
+        displayPhoto()
+        
+    }
+    
+    func displayPhoto() {
+        // Decide how the image will display in the UIImageView box
+        self.musicScoreView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        // Load the sheet music
+        self.musicScoreView.image = UIImage(named: music.sheetJPG[index])
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
