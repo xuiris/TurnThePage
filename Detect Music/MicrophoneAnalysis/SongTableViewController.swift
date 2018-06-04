@@ -16,10 +16,12 @@ class SongTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Load the sample Song data
-        loadSampleSongs()
+        
+        // Load the "instructions" and sample Song data
+        loadInstructionCell()
+        //loadSampleSongs()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,6 +57,17 @@ class SongTableViewController: UITableViewController {
         return cell
     }
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            songs.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     //MARK: Actions
     
     @IBAction func unwindToMySongList(sender: UIStoryboardSegue) {
@@ -73,6 +86,14 @@ class SongTableViewController: UITableViewController {
     }
     
     //MARK: Private Methods
+    private func loadInstructionCell() {
+        let measure0 = Measure(number: 0, notes: [Note(pitch: "A", isLastNote: false), Note(pitch: "B", isLastNote: false), Note(pitch: "C", isLastNote: false), Note(pitch: "D", isLastNote: true)], isLastMeasure: false)
+        let measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
+        
+        let instructions = Song(song: "Press '+' at the top right to add a new song from the library." , artist: "Swipe left on songs to remove them from 'My Songs'.", musicScore: [measure0, measure1, measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
+        
+        songs += [instructions]
+    }
     
     private func loadSampleSongs() {
         
@@ -128,17 +149,8 @@ class SongTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+
+
 
     /*
     // Override to support rearranging the table view.

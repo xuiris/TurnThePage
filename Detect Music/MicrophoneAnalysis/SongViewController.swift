@@ -22,6 +22,7 @@ class SongViewController: UIViewController {
     @IBOutlet private var audioInputPlot: EZAudioPlot!
     @IBOutlet weak var musicScoreView: UIImageView!
     
+    let amplitudeThreshold = 0.05
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
@@ -32,7 +33,6 @@ class SongViewController: UIViewController {
     var pitchIndex = 0
     var musicScoreIndex: Int = 0
     var pageViewController : UIPageViewController?
-    
 
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
@@ -91,7 +91,6 @@ class SongViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.hidesBarsOnTap = true;
-        self.navigationController?.hidesBarsOnSwipe = true;
         displaySong()
         
     }
@@ -152,14 +151,14 @@ class SongViewController: UIViewController {
     
         // if here, then we have hit the last measure on the page
         DispatchQueue.main.async (execute: {
-            self.outputLabel.text = "Status: End of Page"
+            self.outputLabel.text = "Status: End of Music"
             self.flipPage()
             self.matchMusic()
         })
     }
     
     @objc func updateUI() {
-        if tracker.amplitude > 0.02 {
+        if tracker.amplitude > amplitudeThreshold {
             let currThread = Thread.current
             print("Current: \(currThread)")
             
