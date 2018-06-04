@@ -1,24 +1,25 @@
 //
-//  SongTableViewController.swift
+//  LibraryTableViewController.swift
 //  MicrophoneAnalysis
 //
-//  Created by Iris Xu on 6/1/18.
+//  Created by Iris Xu on 6/3/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 import os.log
 
-class SongTableViewController: UITableViewController {
-    //MARK: Properties
+class LibraryTableViewController: UITableViewController, LibraryCellDelegate {
     
-    var songs = [Song]()
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var librarySongs = [Song]()
+    var songsToAdd = [Song]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Load the sample Song data
-        loadSampleSongs()
+        
+        loadLibrarySongs()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,46 +36,42 @@ class SongTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // how many rows to display given a section, each Song should have its own row
-        return songs.count
+        return librarySongs.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // ******Here the data is actually loaded into the cell
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "SongTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SongTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of SongTableViewCell.")
+        let cellIdentifier = "LibraryTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? LibraryTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of LibraryTableViewCell.")
         }
         
         // Fetches the appropriate song for the data source layout.
-        let song = songs[indexPath.row]
+        let song = librarySongs[indexPath.row]
         
         // Configure the cell...
         cell.setSong(song: song)
+        cell.delegate = self
         
         return cell
     }
     
-    //MARK: Actions
+    // MARK: - Navigation
     
-    @IBAction func unwindToMySongList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? LibraryTableViewController {
-            
-            // Add new songs to "My Songs".
-            let newSongs = sourceViewController.songsToAdd
-            
-            for s in newSongs {
-                let newIndexPath = IndexPath(row: songs.count, section: 0)
-                songs += [s]
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-            
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
         }
     }
     
-    //MARK: Private Methods
-    
-    private func loadSampleSongs() {
+    // My functions:
+    private func loadLibrarySongs() {
         
         let measure0 = Measure(number: 0, notes: [Note(pitch: "A", isLastNote: false), Note(pitch: "B", isLastNote: false), Note(pitch: "C", isLastNote: false), Note(pitch: "D", isLastNote: true)], isLastMeasure: false)
         let measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
@@ -83,40 +80,11 @@ class SongTableViewController: UITableViewController {
         let song2 = Song(song: "Test Song 2 (1 page)", artist: "Artist 2", musicScore: [measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
         let song3 = Song(song: "Test Song 3 (1 page)", artist: "Artist 3", musicScore: [measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
         
-        songs += [song1, song2, song3]
+        librarySongs += [song1, song2, song3]
     }
-
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        switch(segue.identifier ?? "") {
-            case "ViewLibrary":
-                os_log("Viewing library.", log: OSLog.default, type: .debug)
-            
-            case "BeginDetect":
-                // Get the new view controller using segue.destinationViewController.
-                guard let songDetailViewController = segue.destination as? SongViewController else {
-                    fatalError("Unexpected destination: \(segue.destination)")
-                }
-                
-                guard let selectedSongCell = sender as? SongTableViewCell else {
-                    fatalError("Unexpected sender: \(sender)")
-                }
-                
-                guard let indexPath = tableView.indexPath(for: selectedSongCell) else {
-                    fatalError("The selected cell is not being displayed by the table")
-                }
-                
-                let selectedSong = songs[indexPath.row]
-                songDetailViewController.music = selectedSong
-                // Pass the selected object to the new view controller.
-            
-            default:
-                fatalError("Unexpected Segue Identifier; \(segue.identifier)")
-            }
+    func addSong(song: Song) {
+        songsToAdd += [song]
     }
     
     
@@ -155,7 +123,6 @@ class SongTableViewController: UITableViewController {
     }
     */
 
-    
  
 
 }

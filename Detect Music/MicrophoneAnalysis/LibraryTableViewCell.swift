@@ -1,24 +1,35 @@
 //
-//  SongTableViewCell.swift
+//  LibraryTableViewCell.swift
 //  MicrophoneAnalysis
 //
-//  Created by Iris Xu on 6/1/18.
+//  Created by Iris Xu on 6/3/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
 
 import UIKit
 
-class SongTableViewCell: UITableViewCell {
-    //MARK: Properties
+protocol LibraryCellDelegate {
+    func addSong(song: Song)
+}
+
+class LibraryTableViewCell: UITableViewCell {
+
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     
-    var songCell: Song!
+    var songItem: Song!
+    var delegate: LibraryCellDelegate?
     
     func setSong(song: Song) {
         songLabel.text = song.song
         artistLabel.text = song.artist
-        songCell = song
+        songItem = song
+    }
+    
+    @IBAction func addSongClicked(_ sender: Any) {
+        delegate?.addSong(song: songItem)
+        let disableMyButton = sender as? UIButton
+        disableMyButton?.isEnabled = false
     }
     
     override func awakeFromNib() {
