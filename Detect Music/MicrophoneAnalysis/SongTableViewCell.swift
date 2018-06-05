@@ -12,13 +12,15 @@ class SongTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
-    
+    @IBOutlet weak var songImage: UIImageView!
     var songCell: Song!
+     var index: Int = 0
     
     func setSong(song: Song) {
         songLabel.text = song.song
         artistLabel.text = song.artist
         songCell = song
+        songImage.image = UIImage(named: song.sheetJPG[index])
     }
     
     override func awakeFromNib() {

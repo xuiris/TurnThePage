@@ -43,7 +43,7 @@ class SongViewController: UIViewController {
         plot.plotType = .rolling
         plot.shouldFill = true
         plot.shouldMirror = true
-        plot.color = UIColor.blue
+        plot.color = UIColor.brown
         audioInputPlot.addSubview(plot)
     }
     

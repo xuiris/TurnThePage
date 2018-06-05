@@ -17,12 +17,18 @@
 		1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107220C14BBE00056ED0 /* SongTableViewController.swift */; };
 		1C47107820C3305000056ED0 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */; };
 		1C47107A20C3305000056ED0 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881F82F1D0C01F0007E62A3 /* AudioKit.framework */; };
-		1C88E3F020AFA4FE009B1B3C /* parserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */; };
 		789CA9B61D0A01F500D6EFF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CA9B51D0A01F500D6EFF1 /* AppDelegate.swift */; };
 		789CA9B81D0A01F500D6EFF1 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CA9B71D0A01F500D6EFF1 /* SongViewController.swift */; };
 		789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9B91D0A01F500D6EFF1 /* Main.storyboard */; };
 		789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */; };
 		789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */; };
+		C6F7C4E220C64E5F00A92DE2 /* twinkle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */; };
+		C6F7C4E420C6534700A92DE2 /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E320C6534700A92DE2 /* image.jpeg */; };
+		C6F7C4E620C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */; };
+		C6F7C4EA20C67E3F00A92DE2 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E720C67E3600A92DE2 /* 3.png */; };
+		C6F7C4EB20C67E3F00A92DE2 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E820C67E3600A92DE2 /* 1.png */; };
+		C6F7C4EC20C67E3F00A92DE2 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E920C67E3B00A92DE2 /* 2.png */; };
+		C6F7C4EE20C6817400A92DE2 /* playmusic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */; };
 		D0B49179620476EFB9AF880D /* Pods_MicrophoneAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +41,6 @@
 		1C2A589620ACADD100CFF308 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		1C47107020C1403300056ED0 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1C47107220C14BBE00056ED0 /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
-		1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parserInfo.swift; path = ../../../../../Downloads/parserInfo.swift; sourceTree = "<group>"; };
 		312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MicrophoneAnalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3467C0D39F1E22D3C99D0A1A /* Pods-MicrophoneAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicrophoneAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-MicrophoneAnalysis/Pods-MicrophoneAnalysis.release.xcconfig"; sourceTree = "<group>"; };
 		7881F82F1D0C01F0007E62A3 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = ../../AudioKit.framework; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		789CA9BF1D0A01F500D6EFF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		789CA9C11D0A01F500D6EFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicrophoneAnalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MicrophoneAnalysis/Pods-MicrophoneAnalysis.debug.xcconfig"; sourceTree = "<group>"; };
+		C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = twinkle.jpg; path = ../../../twinkle.jpg; sourceTree = "<group>"; };
+		C6F7C4E320C6534700A92DE2 /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpeg; path = ../../../image.jpeg; sourceTree = "<group>"; };
+		C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "negative-space-guitar-woman-hand-burst.jpg"; path = "../../../negative-space-guitar-woman-hand-burst.jpg"; sourceTree = "<group>"; };
+		C6F7C4E720C67E3600A92DE2 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../3.png; sourceTree = "<group>"; };
+		C6F7C4E820C67E3600A92DE2 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../1.png; sourceTree = "<group>"; };
+		C6F7C4E920C67E3B00A92DE2 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../2.png; sourceTree = "<group>"; };
+		C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = playmusic.jpg; path = ../../../playmusic.jpg; sourceTree = "<group>"; };
 		EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = ../../AudioKitUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,11 +105,17 @@
 				1C1EE2FF20C4B12F00361CF5 /* LibraryTableViewCell.swift */,
 				1C1EE30320C4BE8200361CF5 /* LibraryTableViewController.swift */,
 				1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */,
-				1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */,
 				789CA9B91D0A01F500D6EFF1 /* Main.storyboard */,
 				789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */,
 				789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */,
+				C6F7C4E820C67E3600A92DE2 /* 1.png */,
+				C6F7C4E920C67E3B00A92DE2 /* 2.png */,
+				C6F7C4E720C67E3600A92DE2 /* 3.png */,
+				C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */,
 				1C1EE30920C5081000361CF5 /* jinglebells.jpg */,
+				C6F7C4E320C6534700A92DE2 /* image.jpeg */,
+				C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */,
+				C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */,
 				1C1EE30A20C5081000361CF5 /* testsong.jpg */,
 				789CA9C11D0A01F500D6EFF1 /* Info.plist */,
 			);
@@ -183,11 +201,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F7C4EC20C67E3F00A92DE2 /* 2.png in Resources */,
 				789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */,
 				1C1EE30B20C5081000361CF5 /* jinglebells.jpg in Resources */,
+				C6F7C4EE20C6817400A92DE2 /* playmusic.jpg in Resources */,
+				C6F7C4E620C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg in Resources */,
+				C6F7C4EA20C67E3F00A92DE2 /* 3.png in Resources */,
 				1C1EE30C20C5081000361CF5 /* testsong.jpg in Resources */,
+				C6F7C4E420C6534700A92DE2 /* image.jpeg in Resources */,
 				789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */,
+				C6F7C4E220C64E5F00A92DE2 /* twinkle.jpg in Resources */,
 				789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */,
+				C6F7C4EB20C67E3F00A92DE2 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +247,6 @@
 				789CA9B81D0A01F500D6EFF1 /* SongViewController.swift in Sources */,
 				1C1EE30E20C5E2C900361CF5 /* PreviewViewController.swift in Sources */,
 				1C1EE30020C4B12F00361CF5 /* LibraryTableViewCell.swift in Sources */,
-				1C88E3F020AFA4FE009B1B3C /* parserInfo.swift in Sources */,
 				1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */,
 				789CA9B61D0A01F500D6EFF1 /* AppDelegate.swift in Sources */,
 				1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */,
@@ -368,6 +392,7 @@
 			baseConfigurationReference = 857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -388,6 +413,7 @@
 			baseConfigurationReference = 3467C0D39F1E22D3C99D0A1A /* Pods-MicrophoneAnalysis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

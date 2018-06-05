@@ -5,7 +5,6 @@
 //  Created by Iris Xu on 6/2/18.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
-
 import UIKit
 
 class PreviewViewController: UIViewController {
@@ -18,7 +17,7 @@ class PreviewViewController: UIViewController {
     var pageViewController : UIPageViewController?
     
     @IBOutlet weak var imageView: UIImageView!
-
+    
     @IBAction func NextClicked(_ sender: Any) {
         index += 1
         if (index < song.sheetJPG.count) {
@@ -29,16 +28,16 @@ class PreviewViewController: UIViewController {
             disableMyButton?.isEnabled = false
         }
     }
-
-
-
+    
+    
+    
     class Constants {
         
         struct Statics {
             static let images = ["jinglebells.jpg","jinglebells.jpg","jinglebells.jpg"]
         }
     }
-
+    
     
     
     override func viewDidLoad() {
@@ -73,15 +72,14 @@ class PreviewViewController: UIViewController {
         self.imageView.image = image
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
