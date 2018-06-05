@@ -275,7 +275,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-zA-EI8">
-                                            <rect key="frame" x="329" y="29" width="30" height="30"/>
+                                            <rect key="frame" x="699" y="29" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add"/>
                                             <connections>
@@ -287,6 +287,7 @@
                                 <connections>
                                     <outlet property="artistLabel" destination="733-aw-pD8" id="Kmh-K9-G6b"/>
                                     <outlet property="songLabel" destination="38d-KG-Jhf" id="dYz-fH-gQW"/>
+                                    <segue destination="D9H-qu-gHj" kind="show" identifier="PreviewSong" id="3QE-zR-fxd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -312,7 +313,63 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1886" y="879"/>
+            <point key="canvasLocation" x="1885.9375" y="878.90625"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="w1X-j4-zet">
+            <objects>
+                <viewController id="D9H-qu-gHj" customClass="PreviewViewController" customModule="MicrophoneAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HqV-9E-7Td"/>
+                        <viewControllerLayoutGuide type="bottom" id="vqQ-Wo-N9M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oVB-qa-1WQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUu-gV-xyO">
+                                <rect key="frame" x="20" y="87" width="728" height="864"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20L-ja-6iv">
+                                <rect key="frame" x="363" y="28" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Dk-CBp">
+                                <rect key="frame" x="363" y="57" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-2z-MZR">
+                                <rect key="frame" x="659" y="968" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <action selector="NextClicked:" destination="D9H-qu-gHj" eventType="touchUpInside" id="YDn-S5-ZFS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2G-By-UTm">
+                                <rect key="frame" x="37" y="968" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Previous Page "/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistLabel" destination="hbK-Dk-CBp" id="HNe-NR-J7e"/>
+                        <outlet property="imageView" destination="FUu-gV-xyO" id="49q-H3-0qS"/>
+                        <outlet property="songLabel" destination="20L-ja-6iv" id="Sd1-6W-HK6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8D-TA-C3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640.625" y="878.90625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOx-QR-U4R">

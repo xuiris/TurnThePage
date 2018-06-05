@@ -67,12 +67,33 @@ class LibraryTableViewController: UITableViewController, LibraryCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
+        if (segue.identifier == "PreviewSong") {
+            // Get the new view controller using segue.destinationViewController.
+            guard let songPreviewViewController = segue.destination as? PreviewViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedSongCell = sender as? LibraryTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedSongCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedSong = librarySongs[indexPath.row]
+            songPreviewViewController.song = selectedSong
+            // Pass the selected object to the new view controller.
+        }
+        else {
+            // Configure the destination view controller only when the save button is pressed.
+            guard let button = sender as? UIBarButtonItem, button === saveButton else {
+                os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+                return
+            }
         }
     }
+
     
     // My functions:
     private func loadLibrarySongs() {

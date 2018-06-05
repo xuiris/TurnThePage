@@ -1,5 +1,5 @@
 //
-//  ImageViewController.swift
+//  PreviewViewController.swift
 //  MicrophoneAnalysis
 //
 //  Created by Iris Xu on 6/2/18.
@@ -8,17 +8,23 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+class PreviewViewController: UIViewController {
     
-    var index: Int = 0;
+    @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    
+    var song: Song!
+    var index: Int = 0
     var pageViewController : UIPageViewController?
     
     @IBOutlet weak var imageView: UIImageView!
 
     @IBAction func NextClicked(_ sender: Any) {
         index += 1
-        self.imageView.image = UIImage(named: Constants.Statics.images[index])
-        if (index == ((Constants.Statics.images.count) - 1)) {
+        if (index < song.sheetJPG.count) {
+            self.imageView.image = UIImage(named: song.sheetJPG[index])
+        }
+        if (index >= ((song.sheetJPG.count) - 1)) {
             let disableMyButton = sender as? UIButton
             disableMyButton?.isEnabled = false
         }
@@ -63,7 +69,7 @@ class ImageViewController: UIViewController {
         self.imageView.contentMode = UIViewContentMode.scaleAspectFit
         
         // Load the image
-        let image = UIImage(named: Constants.Statics.images[index])
+        let image = UIImage(named: song.sheetJPG[index])
         self.imageView.image = image
     }
     

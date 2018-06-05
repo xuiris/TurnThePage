@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1EE30020C4B12F00361CF5 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1EE2FF20C4B12F00361CF5 /* LibraryTableViewCell.swift */; };
+		1C1EE30420C4BE8200361CF5 /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1EE30320C4BE8200361CF5 /* LibraryTableViewController.swift */; };
+		1C1EE30B20C5081000361CF5 /* jinglebells.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE30920C5081000361CF5 /* jinglebells.jpg */; };
+		1C1EE30C20C5081000361CF5 /* testsong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE30A20C5081000361CF5 /* testsong.jpg */; };
+		1C1EE30E20C5E2C900361CF5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */; };
 		1C2A589720ACADD100CFF308 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A589620ACADD100CFF308 /* Music.swift */; };
 		1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107020C1403300056ED0 /* SongTableViewCell.swift */; };
 		1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107220C14BBE00056ED0 /* SongTableViewController.swift */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C1EE2FF20C4B12F00361CF5 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		1C1EE30320C4BE8200361CF5 /* LibraryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
+		1C1EE30920C5081000361CF5 /* jinglebells.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jinglebells.jpg; path = "Music Score/jinglebells.jpg"; sourceTree = SOURCE_ROOT; };
+		1C1EE30A20C5081000361CF5 /* testsong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testsong.jpg; path = "Music Score/testsong.jpg"; sourceTree = SOURCE_ROOT; };
+		1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1C2A589620ACADD100CFF308 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		1C47107020C1403300056ED0 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1C47107220C14BBE00056ED0 /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +90,15 @@
 				1C2A589620ACADD100CFF308 /* Music.swift */,
 				1C47107020C1403300056ED0 /* SongTableViewCell.swift */,
 				1C47107220C14BBE00056ED0 /* SongTableViewController.swift */,
+				1C1EE2FF20C4B12F00361CF5 /* LibraryTableViewCell.swift */,
+				1C1EE30320C4BE8200361CF5 /* LibraryTableViewController.swift */,
+				1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */,
 				1C88E3EF20AFA4FE009B1B3C /* parserInfo.swift */,
 				789CA9B91D0A01F500D6EFF1 /* Main.storyboard */,
 				789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */,
 				789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */,
+				1C1EE30920C5081000361CF5 /* jinglebells.jpg */,
+				1C1EE30A20C5081000361CF5 /* testsong.jpg */,
 				789CA9C11D0A01F500D6EFF1 /* Info.plist */,
 			);
 			path = MicrophoneAnalysis;
@@ -169,6 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */,
+				1C1EE30B20C5081000361CF5 /* jinglebells.jpg in Resources */,
+				1C1EE30C20C5081000361CF5 /* testsong.jpg in Resources */,
 				789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */,
 				789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */,
 			);
@@ -203,10 +220,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				789CA9B81D0A01F500D6EFF1 /* SongViewController.swift in Sources */,
+				1C1EE30E20C5E2C900361CF5 /* PreviewViewController.swift in Sources */,
+				1C1EE30020C4B12F00361CF5 /* LibraryTableViewCell.swift in Sources */,
 				1C88E3F020AFA4FE009B1B3C /* parserInfo.swift in Sources */,
 				1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */,
 				789CA9B61D0A01F500D6EFF1 /* AppDelegate.swift in Sources */,
 				1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */,
+				1C1EE30420C4BE8200361CF5 /* LibraryTableViewController.swift in Sources */,
 				1C2A589720ACADD100CFF308 /* Music.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
