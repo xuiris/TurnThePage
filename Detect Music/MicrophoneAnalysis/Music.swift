@@ -28,7 +28,7 @@ class Song{
     var currMeasure: Int
     var sheetJPG = [String]()
     //var sheetXML: String = String()
-    init(song:String, artist:String, genre:String, musicScore:[Measure], currMeasure:Int, sheetJPG:[String] /*, sheetXML:String*/) {
+    init(song:String = "", artist:String = "", genre:String = "", musicScore:[Measure] = [], currMeasure:Int = 0, sheetJPG:[String] = [] /*, sheetXML:String*/) {
         self.song = song
         self.artist = artist
         self.genre = genre
@@ -41,10 +41,10 @@ class Song{
 
 class Note{
     var pitch: String = String()
-    //var duration: String = String()
-    //var octave: String = String()
+    var duration: String = String()
+    var octave: String = String()
     var isLastNote: Bool = false
-    init(pitch:String, isLastNote:Bool) {
+    init(pitch:String = "", isLastNote:Bool = false) {
         self.pitch = pitch
         self.isLastNote = isLastNote
     }
@@ -52,9 +52,10 @@ class Note{
 
 class Measure{
     var number: Int = Int()
+    var numberOfNotes: Int = Int()
     var notes = [Note]()
     var isLastMeasure: Bool = false
-    init(number:Int, notes:[Note], isLastMeasure:Bool) {
+    init(number:Int = 0, notes:[Note] = [], isLastMeasure:Bool = false) {
         self.number = number
         self.notes = notes
         self.isLastMeasure = isLastMeasure

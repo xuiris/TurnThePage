@@ -9,28 +9,116 @@
 import UIKit
 import os.log
 
-class SongTableViewController: UITableViewController {
+class SongTableViewController: UITableViewController, XMLParserDelegate {
     //MARK: Properties
     
     var songs = [Song]()
 
+    var currentMeasure = 0
+    var measures = [Measure]()
+    var note = Note();
+    var eName: String = String()
+    var duration = String()
+    var octave = String()
+    var pitch = String()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Load the "instructions" and sample Song data
+        
+        if let path = Bundle.main.url(forResource: "xmlparsingtest", withExtension: "xml")
+        {
+            if let parser = XMLParser(contentsOf: path)
+            {
+                parser.delegate = self;
+                parser.parse()
+                
+            }
+        }
         loadInstructionCell()
+        
+        
         //loadSampleSongs()
-//        // title of tableview
-//        let headerView:UIView = UIView(frame:
-//            CGRect(x:0, y:0, width:tableView!.frame.size.width, height:60))
-//        let headerlabel:UILabel = UILabel(frame: headerView.bounds)
-//        headerlabel.textColor = UIColor.white
-//        headerlabel.backgroundColor = UIColor.clear
-//        headerlabel.font = UIFont.systemFont(ofSize: 24)
-//        headerlabel.text = "                                                          Show all my songs"
-//        headerView.addSubview(headerlabel)
-//        headerView.backgroundColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
-//        tableView?.tableHeaderView = headerView
+        //        // title of tableview
+        //        let headerView:UIView = UIView(frame:
+        //            CGRect(x:0, y:0, width:tableView!.frame.size.width, height:60))
+        //        let headerlabel:UILabel = UILabel(frame: headerView.bounds)
+        //        headerlabel.textColor = UIColor.white
+        //        headerlabel.backgroundColor = UIColor.clear
+        //        headerlabel.font = UIFont.systemFont(ofSize: 24)
+        //        headerlabel.text = "                                                          Show all my songs"
+        //        headerView.addSubview(headerlabel)
+        //        headerView.backgroundColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+        //        tableView?.tableHeaderView = headerView
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String])
+    {
+        eName = elementName
+        if elementName == "measure"
+        {
+            let tempMeasure = Measure();
+            
+            //this is how you get attribute values
+            currentMeasure = Int(attributeDict["number"]!)!
+            
+            tempMeasure.number = currentMeasure
+            measures.append(tempMeasure)
+        }
+        
+        if elementName == "note"
+        {
+            pitch = String()
+            octave = String()
+            duration = String()
+        }
+    }
+    
+    //2 sent by parser when reaches the end of any tag
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI amespaceURI: String?, qualifiedName qName: String?)
+    {
+        //if that ending tag is note, we are done making the note obj and add it to the measure
+        if elementName == "note"
+        {
+            let note = Note()
+            note.pitch = pitch
+            note.octave = octave
+            note.duration = duration
+            //self-explanatory, and the - 1 in the index is because the xml files start counting at measure 1, not 0
+            measures[currentMeasure-1].notes.append(note)
+            measures[currentMeasure-1].numberOfNotes+=1
+        }
+        if (elementName == "part")
+        {
+            measures[currentMeasure-1].isLastMeasure = true;
+            measures[currentMeasure-1].notes[measures[currentMeasure-1].numberOfNotes-1].isLastNote = true;
+        }
+    }
+    //3 this is where the logic happens, this runs between the first two functions
+    func parser(_ parser: XMLParser, foundCharacters string: String)
+    {
+        let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        
+        if (!data.isEmpty) {
+            //this checks for note name, like A, B, or C
+            if eName == "step" {
+                pitch += data
+            }
+                //this checks for the octave, can be used later on
+            else if eName == "octave" {
+                octave += data
+            }
+                //this checks for the duration
+            else if eName == "duration" {
+                duration += data
+            }
+            //this could be used to check the type
+            //else if eName == "type" {
+            //type += data
+            //}
+        }
     }
     
 
@@ -103,7 +191,7 @@ class SongTableViewController: UITableViewController {
         let measure0 = Measure(number: 0, notes: [Note(pitch: "A", isLastNote: false), Note(pitch: "B", isLastNote: false), Note(pitch: "C", isLastNote: false), Note(pitch: "D", isLastNote: true)], isLastMeasure: false)
         let measure1 = Measure(number: 0, notes: [Note(pitch: "E", isLastNote: false), Note(pitch: "F", isLastNote: false), Note(pitch: "G", isLastNote: true), Note(pitch: "A", isLastNote: false)], isLastMeasure: true)
         
-        let instructions = Song(song: "Scales" , artist: "Unknown", genre: "Practice", musicScore: [measure0, measure1, measure0, measure1], currMeasure: 0, sheetJPG: ["testsong.jpg"])
+        let instructions = Song(song: "Scales" , artist: "Unknown", genre: "Practice", musicScore: measures, currMeasure: 0, sheetJPG: ["testsong.jpg"])
         
         songs += [instructions]
     }
