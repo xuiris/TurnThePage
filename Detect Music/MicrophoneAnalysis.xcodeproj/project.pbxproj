@@ -12,6 +12,14 @@
 		1C1EE30B20C5081000361CF5 /* jinglebells.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE30920C5081000361CF5 /* jinglebells.jpg */; };
 		1C1EE30C20C5081000361CF5 /* testsong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE30A20C5081000361CF5 /* testsong.jpg */; };
 		1C1EE30E20C5E2C900361CF5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */; };
+		1C1EE31720C718A800361CF5 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31120C7189F00361CF5 /* image.jpg */; };
+		1C1EE31820C718A800361CF5 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31220C7189F00361CF5 /* 3.png */; };
+		1C1EE31920C718A800361CF5 /* negative-space-guitar-woman-hand-burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31320C718A000361CF5 /* negative-space-guitar-woman-hand-burst.jpg */; };
+		1C1EE31A20C718A800361CF5 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31420C718A200361CF5 /* 1.png */; };
+		1C1EE31B20C718A800361CF5 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31520C718A400361CF5 /* 2.png */; };
+		1C1EE31C20C718A800361CF5 /* image 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31620C718A600361CF5 /* image 2.jpeg */; };
+		1C1EE31E20C757DF00361CF5 /* loadingImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31D20C757DF00361CF5 /* loadingImage.jpg */; };
+		1C1EE32020C757E500361CF5 /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1EE31F20C757E400361CF5 /* image.jpeg */; };
 		1C2A589720ACADD100CFF308 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A589620ACADD100CFF308 /* Music.swift */; };
 		1C47107120C1403300056ED0 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107020C1403300056ED0 /* SongTableViewCell.swift */; };
 		1C47107320C14BBE00056ED0 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C47107220C14BBE00056ED0 /* SongTableViewController.swift */; };
@@ -22,13 +30,6 @@
 		789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9B91D0A01F500D6EFF1 /* Main.storyboard */; };
 		789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */; };
 		789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */; };
-		C6F7C4E220C64E5F00A92DE2 /* twinkle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */; };
-		C6F7C4E420C6534700A92DE2 /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E320C6534700A92DE2 /* image.jpeg */; };
-		C6F7C4E620C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */; };
-		C6F7C4EA20C67E3F00A92DE2 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E720C67E3600A92DE2 /* 3.png */; };
-		C6F7C4EB20C67E3F00A92DE2 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E820C67E3600A92DE2 /* 1.png */; };
-		C6F7C4EC20C67E3F00A92DE2 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4E920C67E3B00A92DE2 /* 2.png */; };
-		C6F7C4EE20C6817400A92DE2 /* playmusic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */; };
 		D0B49179620476EFB9AF880D /* Pods_MicrophoneAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312EBCCCC24BD916626EBDD0 /* Pods_MicrophoneAnalysis.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,14 @@
 		1C1EE30920C5081000361CF5 /* jinglebells.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jinglebells.jpg; path = "Music Score/jinglebells.jpg"; sourceTree = SOURCE_ROOT; };
 		1C1EE30A20C5081000361CF5 /* testsong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testsong.jpg; path = "Music Score/testsong.jpg"; sourceTree = SOURCE_ROOT; };
 		1C1EE30D20C5E2C900361CF5 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		1C1EE31120C7189F00361CF5 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = ../../../../../Downloads/image.jpg; sourceTree = "<group>"; };
+		1C1EE31220C7189F00361CF5 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../../../Downloads/3.png; sourceTree = "<group>"; };
+		1C1EE31320C718A000361CF5 /* negative-space-guitar-woman-hand-burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "negative-space-guitar-woman-hand-burst.jpg"; path = "../../../../../Downloads/negative-space-guitar-woman-hand-burst.jpg"; sourceTree = "<group>"; };
+		1C1EE31420C718A200361CF5 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../../../Downloads/1.png; sourceTree = "<group>"; };
+		1C1EE31520C718A400361CF5 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../../../Downloads/2.png; sourceTree = "<group>"; };
+		1C1EE31620C718A600361CF5 /* image 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "image 2.jpeg"; path = "../../../../../Downloads/image 2.jpeg"; sourceTree = "<group>"; };
+		1C1EE31D20C757DF00361CF5 /* loadingImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = loadingImage.jpg; path = ../../../../../Downloads/loadingImage.jpg; sourceTree = "<group>"; };
+		1C1EE31F20C757E400361CF5 /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpeg; path = ../../../../../Downloads/image.jpeg; sourceTree = "<group>"; };
 		1C2A589620ACADD100CFF308 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		1C47107020C1403300056ED0 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1C47107220C14BBE00056ED0 /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
@@ -52,13 +61,6 @@
 		789CA9BF1D0A01F500D6EFF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		789CA9C11D0A01F500D6EFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		857C92ADD633EE540BA6493E /* Pods-MicrophoneAnalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MicrophoneAnalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MicrophoneAnalysis/Pods-MicrophoneAnalysis.debug.xcconfig"; sourceTree = "<group>"; };
-		C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = twinkle.jpg; path = ../../../twinkle.jpg; sourceTree = "<group>"; };
-		C6F7C4E320C6534700A92DE2 /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpeg; path = ../../../image.jpeg; sourceTree = "<group>"; };
-		C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "negative-space-guitar-woman-hand-burst.jpg"; path = "../../../negative-space-guitar-woman-hand-burst.jpg"; sourceTree = "<group>"; };
-		C6F7C4E720C67E3600A92DE2 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../3.png; sourceTree = "<group>"; };
-		C6F7C4E820C67E3600A92DE2 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../1.png; sourceTree = "<group>"; };
-		C6F7C4E920C67E3B00A92DE2 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../2.png; sourceTree = "<group>"; };
-		C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = playmusic.jpg; path = ../../../playmusic.jpg; sourceTree = "<group>"; };
 		EA10E1511F4F93AB003F0CA9 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = ../../AudioKitUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,16 +110,17 @@
 				789CA9B91D0A01F500D6EFF1 /* Main.storyboard */,
 				789CA9BC1D0A01F500D6EFF1 /* Assets.xcassets */,
 				789CA9BE1D0A01F500D6EFF1 /* LaunchScreen.storyboard */,
-				C6F7C4E820C67E3600A92DE2 /* 1.png */,
-				C6F7C4E920C67E3B00A92DE2 /* 2.png */,
-				C6F7C4E720C67E3600A92DE2 /* 3.png */,
-				C6F7C4ED20C6817400A92DE2 /* playmusic.jpg */,
+				1C1EE31420C718A200361CF5 /* 1.png */,
+				1C1EE31520C718A400361CF5 /* 2.png */,
 				1C1EE30920C5081000361CF5 /* jinglebells.jpg */,
-				C6F7C4E320C6534700A92DE2 /* image.jpeg */,
-				C6F7C4E120C64E5F00A92DE2 /* twinkle.jpg */,
-				C6F7C4E520C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg */,
+				1C1EE31220C7189F00361CF5 /* 3.png */,
+				1C1EE31620C718A600361CF5 /* image 2.jpeg */,
+				1C1EE31120C7189F00361CF5 /* image.jpg */,
+				1C1EE31320C718A000361CF5 /* negative-space-guitar-woman-hand-burst.jpg */,
 				1C1EE30A20C5081000361CF5 /* testsong.jpg */,
 				789CA9C11D0A01F500D6EFF1 /* Info.plist */,
+				1C1EE31F20C757E400361CF5 /* image.jpeg */,
+				1C1EE31D20C757DF00361CF5 /* loadingImage.jpg */,
 			);
 			path = MicrophoneAnalysis;
 			sourceTree = "<group>";
@@ -201,18 +204,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F7C4EC20C67E3F00A92DE2 /* 2.png in Resources */,
 				789CA9C01D0A01F500D6EFF1 /* LaunchScreen.storyboard in Resources */,
+				1C1EE31B20C718A800361CF5 /* 2.png in Resources */,
+				1C1EE32020C757E500361CF5 /* image.jpeg in Resources */,
 				1C1EE30B20C5081000361CF5 /* jinglebells.jpg in Resources */,
-				C6F7C4EE20C6817400A92DE2 /* playmusic.jpg in Resources */,
-				C6F7C4E620C675BF00A92DE2 /* negative-space-guitar-woman-hand-burst.jpg in Resources */,
-				C6F7C4EA20C67E3F00A92DE2 /* 3.png in Resources */,
+				1C1EE31920C718A800361CF5 /* negative-space-guitar-woman-hand-burst.jpg in Resources */,
+				1C1EE31820C718A800361CF5 /* 3.png in Resources */,
 				1C1EE30C20C5081000361CF5 /* testsong.jpg in Resources */,
-				C6F7C4E420C6534700A92DE2 /* image.jpeg in Resources */,
+				1C1EE31A20C718A800361CF5 /* 1.png in Resources */,
 				789CA9BD1D0A01F500D6EFF1 /* Assets.xcassets in Resources */,
-				C6F7C4E220C64E5F00A92DE2 /* twinkle.jpg in Resources */,
+				1C1EE31E20C757DF00361CF5 /* loadingImage.jpg in Resources */,
+				1C1EE31720C718A800361CF5 /* image.jpg in Resources */,
+				1C1EE31C20C718A800361CF5 /* image 2.jpeg in Resources */,
 				789CA9BB1D0A01F500D6EFF1 /* Main.storyboard in Resources */,
-				C6F7C4EB20C67E3F00A92DE2 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

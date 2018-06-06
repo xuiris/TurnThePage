@@ -11,6 +11,7 @@ class PreviewViewController: UIViewController {
     
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     
     var song: Song!
     var index: Int = 0
@@ -52,9 +53,12 @@ class PreviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.hidesBarsOnTap = true;
-        self.navigationController?.hidesBarsOnSwipe = true;
+        self.navigationController?.hidesBarsOnTap = false;
+        self.navigationController?.hidesBarsOnSwipe = false;
         displayPhoto()
+        songLabel.text = song.song
+        artistLabel.text = song.artist
+        genreLabel.text = song.genre
         
     }
     

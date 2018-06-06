@@ -16,6 +16,7 @@ class LibraryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var songImage: UIImageView!
     
     var songItem: Song!
     var delegate: LibraryCellDelegate?
@@ -23,6 +24,8 @@ class LibraryTableViewCell: UITableViewCell {
     func setSong(song: Song) {
         songLabel.text = song.song
         artistLabel.text = song.artist
+        songImage.contentMode = UIViewContentMode.scaleAspectFit
+        songImage.image = UIImage(named: song.sheetJPG[0])
         songItem = song
     }
     

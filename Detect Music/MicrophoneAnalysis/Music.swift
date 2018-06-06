@@ -23,13 +23,15 @@ import Foundation
 class Song{
     var song: String = String()
     var artist: String = String()
+    var genre: String = String()
     var musicScore = [Measure]()
     var currMeasure: Int
     var sheetJPG = [String]()
     //var sheetXML: String = String()
-    init(song:String, artist:String, musicScore:[Measure], currMeasure:Int, sheetJPG:[String] /*, sheetXML:String*/) {
+    init(song:String, artist:String, genre:String, musicScore:[Measure], currMeasure:Int, sheetJPG:[String] /*, sheetXML:String*/) {
         self.song = song
         self.artist = artist
+        self.genre = genre
         self.musicScore = musicScore
         self.currMeasure = 0
         self.sheetJPG = sheetJPG

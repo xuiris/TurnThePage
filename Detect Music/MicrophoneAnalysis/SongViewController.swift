@@ -15,7 +15,7 @@ import UIKit
 
 class SongViewController: UIViewController {
 
-    @IBOutlet private var frequencyLabel: UILabel!
+//    @IBOutlet private var frequencyLabel: UILabel!
     @IBOutlet private var amplitudeLabel: UILabel!
     @IBOutlet var noteNameWithSharpsLabel: UILabel!
     @IBOutlet var noteNameWithFlatsLabel: UILabel!
@@ -59,6 +59,8 @@ class SongViewController: UIViewController {
         }
         setupPlot()
         matchMusic()
+        outputLabel.text = "Detecting"
+        
         
         Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
@@ -90,7 +92,7 @@ class SongViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.hidesBarsOnTap = true;
+        self.navigationController?.hidesBarsOnTap = false;
         displaySong()
         
     }
@@ -162,9 +164,9 @@ class SongViewController: UIViewController {
             let currThread = Thread.current
             print("Current: \(currThread)")
             
-                DispatchQueue.main.async (execute: {
-                    self.frequencyLabel.text = String(format: "%0.1f", self.tracker.frequency)
-            })
+//                DispatchQueue.main.async (execute: {
+//                    self.frequencyLabel.text = String(format: "%0.1f", self.tracker.frequency)
+//            })
             
                 var frequency = Float(tracker.frequency)
                 while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
